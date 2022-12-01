@@ -14,11 +14,13 @@ const getUserId = require('./controllers/getUserId');
 const createUser = require('./controllers/createUser');
 const validaLogin = require('./auth/validaLogin');
 const validaUser = require('./auth/validaUser');
+const createCategory = require('./controllers/createCategory');
 
 app.post('/login', validaLogin, login);
 app.post('/user', validaUser, createUser);
 app.get('/user', getUsers);
 app.get('/user/:id', getUserId);
+app.post('/categories', createCategory);
 
 // ...
 
