@@ -5,6 +5,11 @@ const createUsername = (body) => {
   const { displayName, email, password, image } = body;
   return User.create({ displayName, email, password, image });
 };
-console.log(createUsername);
+const getAllUser = async () => {
+  const user = await User.findAll({
+    attributes: { exclude: ['password'] },
+  });
+  return user;
+};
 
-module.exports = { getByUsername, createUsername };
+module.exports = { getByUsername, createUsername, getAllUser };

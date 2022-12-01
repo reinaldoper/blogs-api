@@ -8,7 +8,6 @@ module.exports = async (req, res) => {
   try {
     const { displayName, email, password, image } = req.body;
     const user = await userService.createUsername({ displayName, email, password, image });
-    console.log(user);
     const payload = {
       displayName, 
       email, 
