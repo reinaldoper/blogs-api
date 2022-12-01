@@ -9,9 +9,12 @@ app.use(bodyParser.json());
 
 app.use(express.json());
 const login = require('./controllers/login');
+const createUser = require('./controllers/createUser');
 const validaLogin = require('./auth/validaLogin');
+const validaUser = require('./auth/validaUser');
 
 app.post('/login', validaLogin, login);
+app.post('/user', validaUser, createUser);
 
 // ...
 
