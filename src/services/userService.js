@@ -5,6 +5,7 @@ const createUsername = (body) => {
   const { displayName, email, password, image } = body;
   return User.create({ displayName, email, password, image });
 };
+
 const getAllUser = async () => {
   const user = await User.findAll({
     attributes: { exclude: ['password'] },
@@ -12,4 +13,12 @@ const getAllUser = async () => {
   return user;
 };
 
-module.exports = { getByUsername, createUsername, getAllUser };
+const getById = async (id) => {
+  const employee = await User.findOne({
+    where: { id },
+    attributes: { exclude: ['password'] },
+  });
+  return employee;
+};
+
+module.exports = { getByUsername, createUsername, getAllUser, getById };
