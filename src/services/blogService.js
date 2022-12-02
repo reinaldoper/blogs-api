@@ -29,4 +29,17 @@ const getAllPost = () => BlogPost.findAll({
 ],
 });
 
-module.exports = { createPost, getById, getAllPost };
+const getByNewId = (id) => BlogPost.findByPk(id);
+
+const getByAllId = (id) => BlogPost.findOne({
+  where: { id },
+  include: [{
+    model: User, as: 'user', attributes: { exclude: ['password'] },
+  },
+  {
+    model: Category, as: 'categories',
+  },
+],
+});
+
+module.exports = { createPost, getById, getAllPost, getByAllId, getByNewId };
