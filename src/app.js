@@ -16,7 +16,10 @@ const validaLogin = require('./auth/validaLogin');
 const validaUser = require('./auth/validaUser');
 const createCategory = require('./controllers/createCategory');
 const getAllCategory = require('./controllers/getAllCategory');
+const createBlogPost = require('./controllers/createBlogPost');
+const validaBolg = require('./auth/validaBolg');
 
+app.post('/post', validaBolg, createBlogPost);
 app.post('/login', validaLogin, login);
 app.post('/user', validaUser, createUser);
 app.get('/user', getUsers);
