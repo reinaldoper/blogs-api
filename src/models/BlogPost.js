@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       published: {type: DataTypes.DATE, defaultValue: DataTypes.NOW},
       updated: {type: DataTypes.DATE, defaultValue: DataTypes.NOW},
     },
-    { timestamps: false, underscored: true }
+    { timestamps: false, underscored: true, tableName: 'blog_posts', }
   );
 
   Blog.associate = (models) => {
