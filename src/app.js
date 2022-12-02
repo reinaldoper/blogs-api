@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(express.json());
+const getAllPost = require('./controllers/getAllPost');
 const login = require('./controllers/login');
 const getUsers = require('./controllers/getUsers');
 const getUserId = require('./controllers/getUserId');
@@ -26,6 +27,7 @@ app.get('/user', getUsers);
 app.get('/user/:id', getUserId);
 app.post('/categories', createCategory);
 app.get('/categories', getAllCategory);
+app.get('/post', getAllPost);
 
 // ...
 
