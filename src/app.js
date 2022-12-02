@@ -22,6 +22,8 @@ const getAllCategory = require('./controllers/getAllCategory');
 const createBlogPost = require('./controllers/createBlogPost');
 const validaBolg = require('./auth/validaBolg');
 const validaUpdate = require('./auth/validaUpdate');
+const deletePost = require('./controllers/deletePost');
+const validaDelete = require('./auth/validaDelete');
 
 app.get('/post/:id', getPostId);
 app.post('/post', validaBolg, createBlogPost);
@@ -33,6 +35,7 @@ app.post('/categories', createCategory);
 app.get('/categories', getAllCategory);
 app.get('/post', getAllPost);
 app.put('/post/:id', validaUpdate, updatePost);
+app.delete('/post/:id', validaDelete, deletePost);
 
 // ...
 
