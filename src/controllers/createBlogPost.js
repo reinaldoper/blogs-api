@@ -10,8 +10,9 @@ module.exports = async (req, res) => {
     if (payload.isError) return res.status(401).json({ message: aut });
     const { userId } = payload.data;
     const { type, message } = await blogService.createPost(req.body, userId);
-    if (type) return res.status(type).json(message);
-    res.status(201).json(message);
+    if (type) return res.status(type).json({ message });
+    const n = await blogService.getById(message.id);
+    return res.status(201).json(n);
   } catch (err) {
     return res.status(500).json({ message: 'Erro interno', error: err.message });
   }

@@ -17,4 +17,6 @@ const createPost = async (body, userId) => {
   return { type: null, message: result };
 };
 
-module.exports = { createPost };
+const getById = (userId) => BlogPost.findByPk(userId);
+
+module.exports = { createPost, getById };
