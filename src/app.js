@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(express.json());
+const updatePost = require('./controllers/updatePost');
 const getAllPost = require('./controllers/getAllPost');
 const getPostId = require('./controllers/getPostId');
 const login = require('./controllers/login');
@@ -20,6 +21,7 @@ const createCategory = require('./controllers/createCategory');
 const getAllCategory = require('./controllers/getAllCategory');
 const createBlogPost = require('./controllers/createBlogPost');
 const validaBolg = require('./auth/validaBolg');
+const validaUpdate = require('./auth/validaUpdate');
 
 app.get('/post/:id', getPostId);
 app.post('/post', validaBolg, createBlogPost);
@@ -30,6 +32,7 @@ app.get('/user/:id', getUserId);
 app.post('/categories', createCategory);
 app.get('/categories', getAllCategory);
 app.get('/post', getAllPost);
+app.put('/post/:id', validaUpdate, updatePost);
 
 // ...
 

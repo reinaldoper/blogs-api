@@ -42,4 +42,15 @@ const getByAllId = (id) => BlogPost.findOne({
 ],
 });
 
-module.exports = { createPost, getById, getAllPost, getByAllId, getByNewId };
+const updatePost = ({ title, content }, id) => BlogPost.update(
+  {
+    title,
+    content,
+  },
+  {
+    where: { id },
+    attributes: { exclude: ['id', 'userId', 'published', 'updated'] },
+  },
+);
+
+module.exports = { createPost, getById, getAllPost, getByAllId, getByNewId, updatePost };
