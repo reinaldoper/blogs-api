@@ -25,7 +25,9 @@ const validaUpdate = require('./auth/validaUpdate');
 const deletePost = require('./controllers/deletePost');
 const validaDelete = require('./auth/validaDelete');
 const deleteUser = require('./controllers/deleteUser');
+const searchPost = require('./controllers/searchPost');
 
+app.get('/post/search', searchPost);
 app.get('/post/:id', getPostId);
 app.post('/post', validaBolg, createBlogPost);
 app.post('/login', validaLogin, login);
