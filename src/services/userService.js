@@ -21,4 +21,10 @@ const getById = async (id) => {
   return employee;
 };
 
-module.exports = { getByUsername, createUsername, getAllUser, getById };
+const deleteUser = async (id) => {
+   await User.destroy({
+    where: { id },
+  });
+};
+
+module.exports = { getByUsername, createUsername, getAllUser, getById, deleteUser };

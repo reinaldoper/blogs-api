@@ -24,6 +24,7 @@ const validaBolg = require('./auth/validaBolg');
 const validaUpdate = require('./auth/validaUpdate');
 const deletePost = require('./controllers/deletePost');
 const validaDelete = require('./auth/validaDelete');
+const deleteUser = require('./controllers/deleteUser');
 
 app.get('/post/:id', getPostId);
 app.post('/post', validaBolg, createBlogPost);
@@ -36,6 +37,7 @@ app.get('/categories', getAllCategory);
 app.get('/post', getAllPost);
 app.put('/post/:id', validaUpdate, updatePost);
 app.delete('/post/:id', validaDelete, deletePost);
+app.delete('/user/me', deleteUser);
 
 // ...
 
